@@ -1,0 +1,108 @@
+======================================================
+  INT8 脉动阵列 GEMM (16x16) - 板卡验证程序（ACU4EV 优化版）
+  平台: ACU4EV (XCZU4EV)  PetaLinux 2020.1
+  访问方式: /dev/mem 直接映射（无需 UIO/PYNQ）
+  寄存器基地址: 0x80050000
+  以太网上传: 未启用（加 --host <IP> 开启）
+======================================================
+  mmap 成功，虚拟地址: 0x7fbf43d000
+
+---- test_id=0 ----
+RESULT_0: -23102
+RESULT_1: -25588
+RESULT_2: 4646
+RESULT_3: 6060
+RESULT_4: -8357
+RESULT_5: 23412
+RESULT_6: 50755
+RESULT_7: 4927
+RESULT_8: 20441
+RESULT_9: -28691
+RESULT_10: -5056
+RESULT_11: 9393
+RESULT_12: 1328
+RESULT_13: 8067
+RESULT_14: 7878
+RESULT_15: -5107
+  [PASS] test_id=0 与内置 GOLDEN 表完全一致
+
+---- test_id=1 ----
+RESULT_0: -2904
+RESULT_1: 14265
+RESULT_2: -49756
+RESULT_3: 17852
+RESULT_4: -2810
+RESULT_5: 7620
+RESULT_6: -13115
+RESULT_7: 44238
+RESULT_8: -6380
+RESULT_9: -4825
+RESULT_10: -9765
+RESULT_11: -10295
+RESULT_12: 9432
+RESULT_13: 10194
+RESULT_14: 40624
+RESULT_15: 29771
+  [PASS] test_id=1 与内置 GOLDEN 表完全一致
+
+---- test_id=2 ----
+RESULT_0: 5263
+RESULT_1: 10909
+RESULT_2: 40682
+RESULT_3: -13085
+RESULT_4: -5942
+RESULT_5: 2571
+RESULT_6: 20441
+RESULT_7: 6378
+RESULT_8: -9401
+RESULT_9: -12598
+RESULT_10: -13770
+RESULT_11: -3646
+RESULT_12: -47861
+RESULT_13: -22743
+RESULT_14: 2583
+RESULT_15: 13227
+  [PASS] test_id=2 与内置 GOLDEN 表完全一致
+
+---- test_id=3 ----
+RESULT_0: 551
+RESULT_1: 12545
+RESULT_2: -16407
+RESULT_3: -1856
+RESULT_4: 23815
+RESULT_5: -41373
+RESULT_6: -383
+RESULT_7: -3301
+RESULT_8: 25888
+RESULT_9: -10088
+RESULT_10: 45048
+RESULT_11: -56368
+RESULT_12: 39498
+RESULT_13: -32958
+RESULT_14: -23418
+RESULT_15: 33550
+  [PASS] test_id=3 与内置 GOLDEN 表完全一致
+
+---- test_id=4 ----
+RESULT_0: 19358
+RESULT_1: -21299
+RESULT_2: -4984
+RESULT_3: 6087
+RESULT_4: 34654
+RESULT_5: -20879
+RESULT_6: 6129
+RESULT_7: 2654
+RESULT_8: -14610
+RESULT_9: -3065
+RESULT_10: -25723
+RESULT_11: 3728
+RESULT_12: -15766
+RESULT_13: 8344
+RESULT_14: -6728
+RESULT_15: -17381
+  [PASS] test_id=4 与内置 GOLDEN 表完全一致
+
+======================================================
+  汇总: 5 PASS, 0 FAIL (共 5 组)
+  *** 全部测试通过 — 上板验证 PASS ***
+======================================================

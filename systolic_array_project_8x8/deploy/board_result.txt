@@ -1,0 +1,68 @@
+======================================================
+  INT8 脉动阵列 GEMM (8x8) - 板卡验证程序（ACU4EV 优化版）
+  平台: ACU4EV (XCZU4EV)  PetaLinux 2020.1
+  访问方式: /dev/mem 直接映射（无需 UIO/PYNQ）
+  寄存器基地址: 0x80050000
+  以太网上传: 未启用（加 --host <IP> 开启）
+======================================================
+  mmap 成功，虚拟地址: 0x7f9a657000
+
+---- test_id=0 ----
+RESULT_0: 2437
+RESULT_1: 3604
+RESULT_2: -6525
+RESULT_3: -26132
+RESULT_4: -12318
+RESULT_5: 48740
+RESULT_6: 11803
+RESULT_7: -55
+  [PASS] test_id=0 与内置 GOLDEN 表完全一致
+
+---- test_id=1 ----
+RESULT_0: 1838
+RESULT_1: 9648
+RESULT_2: -17302
+RESULT_3: 8039
+RESULT_4: 6954
+RESULT_5: 3348
+RESULT_6: 8814
+RESULT_7: 11061
+  [PASS] test_id=1 与内置 GOLDEN 表完全一致
+
+---- test_id=2 ----
+RESULT_0: -13351
+RESULT_1: 7425
+RESULT_2: 9208
+RESULT_3: 844
+RESULT_4: -10667
+RESULT_5: 18611
+RESULT_6: -26078
+RESULT_7: -22915
+  [PASS] test_id=2 与内置 GOLDEN 表完全一致
+
+---- test_id=3 ----
+RESULT_0: -3765
+RESULT_1: -10002
+RESULT_2: -1624
+RESULT_3: -17284
+RESULT_4: 25297
+RESULT_5: -4999
+RESULT_6: 10549
+RESULT_7: 4962
+  [PASS] test_id=3 与内置 GOLDEN 表完全一致
+
+---- test_id=4 ----
+RESULT_0: 943
+RESULT_1: -3540
+RESULT_2: -1129
+RESULT_3: -11958
+RESULT_4: 13795
+RESULT_5: -29943
+RESULT_6: -1402
+RESULT_7: 19068
+  [PASS] test_id=4 与内置 GOLDEN 表完全一致
+
+======================================================
+  汇总: 5 PASS, 0 FAIL (共 5 组)
+  *** 全部测试通过 — 上板验证 PASS ***
+======================================================

@@ -1,0 +1,47 @@
+/*
+ * 文件名  : system-user.dtsi
+ * 状态    : 【可选 / OPTIONAL】—— ACU4EV 移植版默认不需要本文件
+ *
+ * 【移植说明】对照 porting_env_hardware_config.md：
+ *   ACU4EV 板卡已验证的软件访问方式是 /dev/mem 直接 mmap
+ *   （见 software/test_app.c），而不是 UIO。
+ *   /dev/mem 方式不需要任何设备树改动，因为它可以访问内核
+ *   物理地址空间中任意未被声明为 STRICT_DEVMEM 保护的区域，
+ *   ACU4EV 的 PetaLinux rootfs 默认允许访问 PL 外设地址段。
+ *
+ *   因此，标准部署流程【不需要】修改设备树，可跳过本文件。
+ *   仅当你希望改用 UIO 方式（例如需要中断支持，或希望避免
+ *   直接暴露 /dev/mem 的完整物理地址空间以提高安全性）时，
+ *   才需要将本文件放入 PetaLinux 工程并重新构建内核：
+ *
+ *   放置路径: <petalinux_proj>/project-spec/meta-user/recipes-bsp/
+ *             device-tree/files/system-user.dtsi
+ *   同时需要在 petalinux-config -c kernel 中启用：
+ *     Device Drivers → Userspace I/O drivers →
+ *       [*] Userspace I/O platform driver
+ *       [*] Userspace I/O platform driver with generic IRQ handling
+ *
+ * 地址说明：
+ *   0x8005_0000 是本工程 axi_ctrl_top 在 ACU4EV 有效 PL 控制孔径
+ *   （0x8000_0000 [512M]）内分配的基地址，与原设计草案中超出范围、
+ *   硬件不可达的 0xA000_0000 不同。可在 Vivado → Address Editor
+ *   中核对确认。
+ */
+
+/include/ "system-conf.dtsi"
+
+/ {
+    /* ── 脉动阵列加速器设备节点（仅 UIO 方案需要）──────────────── */
+    axi_systolic_array@80050000 {
+        compatible  = "generic-uio";
+
+        /* reg 格式：<高32位地址  低32位地址  高32位大小  低32位大小> */
+        /* 64KB 地址空间，覆盖所有 AXI-Lite 寄存器 */
+        reg         = <0x0 0x80050000 0x0 0x10000>;
+
+        status      = "okay";
+
+        /* UIO 设备名称（出现在 /sys/class/uio/uio0/name）*/
+        linux,uio-name = "systolic_array";
+    };
+};

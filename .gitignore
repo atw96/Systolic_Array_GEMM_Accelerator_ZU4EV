@@ -1,0 +1,59 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+*.code-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Vivado / IP packaging build trees (keep sources only)
+**/vivado_project/
+**/vivado_sim_project/
+**/.Xil/
+**/ip_repo/
+**/ip_pkg_tmp/
+**/.ip_pack/
+**/.ps_probe/
+**/hd_visual/
+
+# Vivado logs / journals
+**/vivado*.log
+**/vivado*.jou
+**/vivado_*.backup.*
+**/build.log
+*.vdi
+*.vds
+*.pb
+*.wdb
+*.vcd
+**/xsim.dir/
+**/xvlog.*
+**/xelab.*
+**/xsim*.log
+
+# Local helper / temp scripts
+_reorg.sh
+_*.sh
+*.bak
+
+# Secrets / local env (never commit)
+.env
+.env.*
+*.pem
+id_rsa*
+*_rsa
+*_ed25519
+credentials*
+secrets*
+
+# Optional: uncomment to exclude large binary deploy artifacts (~7.5MB .bit each)
+# **/deploy/*.bit
+# **/deploy/*.xsa
+# **/deploy/test_app
